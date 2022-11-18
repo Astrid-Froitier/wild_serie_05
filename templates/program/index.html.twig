@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All programs{% endblock %}
+
+{% block body %}
+    <h1 class="mb-5 text-light d-flex justify-content-center">Toutes les séries de la table program : </h1>
+    {% for program in programs %}
+        <div class="">
+            <h2 class="text-light ms-3">{{ loop.index }} / {{ program.title }} - Genre : {{ program.category.name }}</h2>
+            <div class="d-flex">
+                <img class="p-3 img-responsive" src="{{ asset('build/images/') }}{{ program.poster }}" alt="serie's picture" height="200" />
+                <div class="p-3">
+                    <p class="text-light">{{ program.synopsis }}</p>
+                    <a href="{{ path("program_show", { id: program.id }) }}">Voir la fiche</a>
+                </div>
+            </div> 
+        </div>
+    {% else %}
+        Aucune série trouvée.
+    {% endfor %}
+
+    <a href="{{ path('app_index') }}" class="d-flex justify-content-center">
+        Retour à l'accueil
+    </a>
+{% endblock %}

@@ -1,9 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Wild Series {% endblock %}
+{% block title %}Série #{{ program.id }}{% endblock %}
 
 {% block body %}
+    <div class="d-flex justify-content-center media">
+        <img class="mr-3 " height="400" src="{{ asset('build/images/') }}{{program.poster}}" alt="{{ program.title }} poster">
+        <div class="d-flex justify-content-center">
+            <div class="m-5 media-body text-light">
+            <h1 class="mt-0 ">{{ program.title }}</h1>
+            <p class="">{{ program.synopsis }}</p>
+            <p class="">Catégorie : {{ program.category.name }}</p>
+            </div>
+        </div> 
+    </div>
 
-<h1 class="text-light">Program 4</h1>
-
+    <a href="{{ path('program_index') }}" class="m-5 d-flex justify-content-center">
+        Retour à la liste des programmes
+    </a>
 {% endblock %}

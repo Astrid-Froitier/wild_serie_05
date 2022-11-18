@@ -11,6 +11,6 @@ import "./styles/app.scss";
 // start the Stimulus application
 import "./bootstrap";
 
-import book from "../assets/images/book.jpeg";
-import logo from "../assets/images/logo_wild_light.png";
-import look from "../assets/images/magnifying_glass_light.png";
+// import book from "../assets/images/book.jpeg";
+// import logo from "../assets/images/logo_wild_light.png";
+// import look from "../assets/images/magnifying_glass_light.png";

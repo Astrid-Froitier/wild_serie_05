@@ -11,22 +11,28 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
     public const PROGRAMS = [
       ['title' => 'The Sandman', 
-      'synopsis' => 'Le marchand de sable doit reconstruire son royame', 'category' => 'Fantastique'],
+      'synopsis' => 'Le marchand de sable doit reconstruire son royame',
+      'poster' => 'sandman.jpeg',
+      'category' => 'Fantastique'],
 
       ['title' => 'Walking dead', 
       'synopsis' => 'Des zombies envahissent la terre',
-       'category' => 'Horreur'],
+      'poster' => 'walking_dead.jpeg',
+      'category' => 'Horreur'],
 
       ['title' => 'Inside Man', 
-      'synopsis' => 'un condamné à mort résoud des enquêtes', 
+      'synopsis' => 'un condamné à mort résoud des enquêtes',
+      'poster' => 'inside_man.jpeg',
       'category' => 'Policier'],
 
       ['title' => 'Warrior nun', 
-      'synopsis' => 'une jeune fille se retrouve enrolée dans une armée de nonne pour combattre le mal', 
+      'synopsis' => 'une jeune fille se retrouve enrolée dans une armée de nonne pour combattre le mal',
+      'poster' => 'warrior_nun.webp',
       'category' => 'Fantastique'],
 
       ['title' => '13 reason why', 
-      'synopsis' => 'Une jeune femme enregistre plusieurs cassette dans lesquelles elle explique les raisons de son suicide', 
+      'synopsis' => 'Une jeune femme enregistre plusieurs cassette dans lesquelles elle explique les raisons de son suicide',
+      'poster' => '13_reason_why.jpeg',
       'category' => 'Drame'],
     ];
 
@@ -38,11 +44,12 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
          $program = new Program();
          $program->setTitle($serie['title']);
          $program->setSynopsis($serie['synopsis']);
+         $program->setPoster($serie['poster']);
          $program->setCategory($this->getReference('category_' . $serie['category']));
          $manager->persist($program); 
         }
         $manager->flush();
-                
+
     }
 
     public function getDependencies()
